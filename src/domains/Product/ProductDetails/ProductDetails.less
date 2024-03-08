@@ -1,0 +1,38 @@
+@tag-bg-color: #6d6875;
+@tag-color: #f6e8ea;
+
+.prooduct-container {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.image-block {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    padding: 0.25rem;
+    color: @tag-color;
+    background-color: @tag-bg-color;
+    border-radius: 6px;
+  }
+}
+
+.info-block {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rating {
+  font-weight: 600;
+}
