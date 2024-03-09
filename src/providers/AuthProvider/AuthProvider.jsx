@@ -26,6 +26,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, [authData.login, location.pathname, navigate, searchParams]);
 
+  useEffect(() => {
+    if (!authData.login) {
+      localStorage.removeItem("user");
+    } else {
+      localStorage.setItem("user", authData.login);
+    }
+  }, [authData.login]);
+
   const authenticate = (login) => {
     setAuthData({ login });
   };
