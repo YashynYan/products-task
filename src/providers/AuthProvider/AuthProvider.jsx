@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setAuthData(DEFAULT_AUTH_DATA);
+    setAuthData({ login: null });
   };
 
   const value = {
