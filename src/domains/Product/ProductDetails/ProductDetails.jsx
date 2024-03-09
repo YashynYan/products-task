@@ -5,7 +5,7 @@ import "./ProductDetails.less";
 
 export const ProductDetails = () => {
   const { isLoading, data } = useProduct();
-  console.log(data);
+
   return isLoading ? (
     <Skeleton height={500} />
   ) : (
