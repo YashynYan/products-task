@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 const DEFAULT_AUTH_DATA = {
-  login: null,
+  login: localStorage.getItem("user"),
 };
 
 const DEFAULT_REDIRECT_URL = "/products";
@@ -36,9 +36,11 @@ export const AuthProvider = ({ children }) => {
 
   const authenticate = (login) => {
     setAuthData({ login });
+    localStorage.setItem("user", login);
   };
 
   const logOut = () => {
+    localStorage.removeItem("user");
     setAuthData(DEFAULT_AUTH_DATA);
   };
 
