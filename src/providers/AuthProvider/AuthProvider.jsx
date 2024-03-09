@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 const DEFAULT_AUTH_DATA = {
-  login: null,
+  login: localStorage.getItem("user"),
 };
 
 const DEFAULT_REDIRECT_URL = "/products";
@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState(DEFAULT_AUTH_DATA);
   const navigate = useNavigate();
   const location = useLocation();
-  let [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     if (authData.login && location.pathname === "/") {

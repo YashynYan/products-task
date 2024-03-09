@@ -28,7 +28,7 @@ export const ProductsTable = () => {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="center">Tite</TableCell>
+              <TableCell align="center">Title</TableCell>
               <TableCell align="center">Price</TableCell>
               <TableCell align="center">Image</TableCell>
             </TableRow>
@@ -41,7 +41,9 @@ export const ProductsTable = () => {
               >
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
-                  <Link to={`/products/${row.id}`}>{row.title}</Link>
+                  <Link to={`/products/${row.id}`} state={{ currentPage }}>
+                    {row.title}
+                  </Link>
                 </TableCell>
                 <TableCell>{row.price}$</TableCell>
                 <TableCell>
